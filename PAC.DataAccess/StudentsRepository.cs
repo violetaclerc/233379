@@ -24,4 +24,9 @@ public class StudentsRepository<T> : IStudentsRepository<Student> where T : clas
         student!.Id = students.Count + 1;
         students.Add(student!);
     }
+
+    public List<Student> GetStudentsByAge(int age)
+    {
+        return _studentsRepository.GetAllStudents().Where(student => student.Age == age).ToList();
+    }
 }
